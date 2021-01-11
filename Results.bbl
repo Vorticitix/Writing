@@ -1,0 +1,62 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Gray%
+, Dunning%
+, Methven%
+, Masato%
+\BCBL {}\ \BBA {} Chagnon%
+}{%
+Gray%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2014}}%
+}]{%
+gray2014systematic}
+\APACinsertmetastar {%
+gray2014systematic}%
+\begin{APACrefauthors}%
+Gray, S\BPBI L.%
+, Dunning, C.%
+, Methven, J.%
+, Masato, G.%
+\BCBL {}\ \BBA {} Chagnon, J\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2014}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Systematic model forecast error in Rossby wave
+  structure} {Systematic model forecast error in rossby wave structure}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Geophysical Research Letters}{41}{8}{2979--2987}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Koch%
+, Wernli%
+\BCBL {}\ \BBA {} Davies%
+}{%
+Koch%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2006}}%
+}]{%
+koch2006event}
+\APACinsertmetastar {%
+koch2006event}%
+\begin{APACrefauthors}%
+Koch, P.%
+, Wernli, H.%
+\BCBL {}\ \BBA {} Davies, H\BPBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2006}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {An event-based jet-stream climatology and typology} {An
+  event-based jet-stream climatology and typology}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Journal of Climatology: A Journal of the
+  Royal Meteorological Society}{26}{3}{283--301}.
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

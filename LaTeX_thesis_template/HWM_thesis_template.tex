@@ -1,0 +1,567 @@
+\documentclass[twocolumn, 10pt, a4paper]{memoir}
+
+% standard packages
+\usepackage{titlesec, blindtext, color}                                  % standard packages
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor} % extra colors 
+\usepackage{graphicx}                                                       % figures
+\usepackage{natbib}                                                          % bibliography
+\usepackage[english]{babel}                                              % correct hyphenation (afbreekstreepjes)
+\usepackage{booktabs}                                                     % for midrule in tables
+
+% PAGE MARGINS
+\usepackage[top=2.5cm, bottom=2.5cm, left=2cm, right=2cm]{geometry}
+
+% FONT
+\usepackage[lf]{berenis}
+\renewcommand*\familydefault{\sfdefault} 
+\usepackage[T1]{fontenc}
+% for other fonts, and how to install them, see the LaTeX Font Catalogue:
+% http://www.tug.dk/FontCatalogue/
+
+% LINE SPACE
+\linespread{1.2}                          % more space between lines
+\setlength{\parindent}{7mm}       % indenting first line paragraph
+\setlength{\columnsep}{7mm} % space between columns
+
+% TABLE OF CONTENTS
+% for subsubsection headers (e.g. 2.1.3), write subsubsection
+% for subsection headers (e.g. 2.1), write subsection
+\setsecnumdepth{subsection}        % in text
+\settocdepth{subsubsection}              % in table of contents
+\renewcommand{\cftdot}{}          % for no dots in table of contents
+\cleardoublepage
+
+% HYPHENATION (afbreekstreepjes)
+% set words that are not abbreviated correctly (expand list when necessary)
+\hyphenation{catch-ment areas a-na-lyse}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% headers: page numbers and running titles
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makepagestyle{ruled}
+\makeevenfoot{ruled}{}{}{}  % empty footer
+\makeoddfoot{ruled}{}{}{}   % empty footer
+
+% header left page (text on left, middle and right slot empty)
+\makeevenhead{ruled}{\textcolor{gray}
+{\makebox[6mm][l]{\thepage} $|$ \hspace{3mm} \leftmark}}{}{} 
+
+% header right page  (text on right, middle and left slot empty)
+\makeoddhead{ruled}{}{}{\textcolor{gray}
+{\rightmark \hspace{3mm} $|$ \makebox[6mm][r]{\thepage}}} 
+
+% first page of chapter
+\titleformat{\chapter}[hang]{\vspace{-34mm}\HUGE}{\thechapter\hspace{20pt}\textcolor{gray}{|}\hspace{20pt}}{0pt}{\HUGE}
+\aliaspagestyle{chapter}{chapterheader} % for no page numbers on first chapter page
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% for background figure first page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{figs/backgroundfigure.jpg}%
+\vfill
+}}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% START
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\thispagestyle{empty}                    % otherwise it gives page number on first page
+\pagestyle{empty}
+\frontmatter
+\firmlists                                       % for less space between items in lists
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TITLE PAGE 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\AddToShipoutPicture*{\BackgroundPic} % for backgroundfigure
+
+
+\twocolumn[\begin{@twocolumnfalse}
+\begin{center}
+\vspace*{3cm}
+\fontsize{30}{20} \textbf{Data analysis and/or modelling}\\
+\vspace{2cm}
+\fontsize{30}{20}\textbf{of some hydrologic phenomenon}\\
+\vspace{9cm}
+\HUGE \textbf{My Name}\\
+\vspace{3cm}
+\LARGE \textbf{March 2016}\\
+\vspace{1cm}
+\LARGE \textbf{MSc thesis}\\
+\LARGE \textbf{Hydrology and Quantitative Water Management Group}\\
+\LARGE \textbf{Wageningen University}\\
+\end{center}
+\end{@twocolumnfalse}]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ABSTRACT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+
+\twocolumn[\begin{@twocolumnfalse}
+\chapter*{Abstract}\vspace{-6mm}       % the * prevents numbering of this section
+Don't make the abstract too long. See the list of tricks on Blackbord.
+\end{@twocolumnfalse}]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TABLE OF CONTENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+% to remove table of contents name and move the text up
+%\renewcommand{\contentsname}{\vspace{-3.5cm}} 
+\twocolumn[\begin{@twocolumnfalse}
+\renewcommand{\contentsname}{\vspace{-3.5cm}}
+\chapter*{Contents}\vspace{-6mm}
+\tableofcontents*
+\end{@twocolumnfalse}]
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% INTRODUCTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% start on right side of page
+\cleardoublepage 
+
+% start with page numbering 1, 2, 3 instead of i, ii, iii
+\pagestyle{ruled}
+\mainmatter          
+
+% Chapter name
+\chapter{Introduction}\vspace{-6mm} 
+  
+
+\section{Context and motivation}
+
+text text text
+
+\section{Research questions}
+
+text text text
+
+\section{Thesis contents}
+
+text text text
+
+
+
+
+
+
+%%%%%%%%%%%%
+% FIELD SITE AND DATA
+%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{Field site and data}\vspace{-6mm} 
+\label{ch: field}
+
+\section{Text}
+
+First paragraph 
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+Second paragraph 
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+\section{Figures}
+
+Figures are moved automatically to nice places.
+
+\begin{figure}[t]
+\center
+\includegraphics[width=\columnwidth]{figs/ponds.jpg}
+\caption{Single column figure, located in the directory of the field sites chapter}
+\label{fig: ponds}
+\end{figure}
+
+\begin{figure*}[t]
+\center
+\includegraphics[width=2\columnwidth]{D:/d_schijf/maps/world/GWD/GWD_world_large}
+\caption{Two-column figure located somewhere else on my hard drive.}
+\label{fig: GWD world}
+\end{figure*}
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text text text text text text text text
+
+\section{Tables}
+
+Tables are moved automatically to nice places too.
+
+\begin{table}[t]
+\caption{Parameter values obtained by optimization with HydroPSO using different objective functions.}
+\label{tab: testtable}
+\centering
+\begin{tabular}{lllll}
+\toprule
+fit on:&$Q^2$&$Q$&$\sqrt{Q}$&$d_\mathrm{G}$\\
+\midrule
+$c_\mathrm{W}$&400&380&379&107\\
+$c_\mathrm{V}$&1.8&0.8&8.2&0.2\\
+$c_\mathrm{G}$&5.3&5.0&5.0&5.0\\
+$c_\mathrm{Q}$&1&4&12&87\\
+\bottomrule
+\end{tabular}
+\end{table} 
+
+\subsection{Equations}
+
+\begin{equation}
+Q = \overline{v} \times A
+\end{equation}
+\label{eq: testequation}
+
+\section{References and citations}
+\label{sec: header 2}
+
+
+\subsection{References}
+
+
+Refer to Chapter~\ref{ch: field}.
+
+Refer to Section~\ref{sec: header 2}.
+
+Refer to Figure~\ref{fig: GWD world}.
+
+Refer to Table~\ref{tab: testtable}.
+
+Refer to Equation~\ref{eq: testequation}.
+
+
+\subsection{Citations}
+
+
+Floods are important \citep{Brauer2011}.
+
+\cite{Brauer2011} state that floods are important.
+
+Floods are important \citep[according to][]{Brauer2011}.
+
+\section{Section header 3}
+
+\subsection{Subsection header}
+
+\subsubsection{Subsubsection header}
+
+
+
+%%%%%%
+% METHODS
+%%%%%%
+
+\chapter{Methods}
+
+
+%%%%%%
+% RESULTS
+%%%%%%
+
+\chapter{Results}
+
+
+%%%%%%%%%%%%
+% CONCLUSION
+%%%%%%%%%%%%
+
+\chapter{Conclusion}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ACKNOWLEDGEMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter*{Acknowledgements}\vspace{-6mm}       % the * prevents numbering of this section
+\addcontentsline{toc}{chapter}{Acknowledgements}   % to get acknowledgements in table of contents
+
+Don't forget to thank the people who gave you data!
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BIBLIOGRAPHY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\bibname}{Bibliography} 
+\bibliographystyle{elsart-harv}
+\bibliography{references_thesis}
+
+% to add items to the bibliography:
+% option 1. open "references_thesis.bib" in JabRef (free downloadable), enter more papers
+% option 2. open "references_thesis.bib" in NotePad, go to Google Scholar, find paper, click "cite", click "import into BiBTeX", copy text into NotePad
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+\chapter{Additional figures}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% END
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}

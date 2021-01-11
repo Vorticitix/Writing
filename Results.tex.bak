@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+\usepackage{apacite,graphicx,natbib,geometry,xcolor}
+\graphicspath{ {/media/onno/Algemeen/Thesis/Main_Figures/} }
+\geometry{margin=2cm}
+\usepackage[utf8]{inputenc}
+\usepackage{lineno}
+\usepackage{caption}
+\usepackage{xcolor}
+\newcommand{\newpara}
+    {
+    \vskip 0.4cm
+    }
+\captionsetup[figure]{labelfont=it,textfont=it,font=scriptsize}
+\begin{document}
+%\thispagestyle{plain}
+\pagenumbering{arabic}
+\bibliographystyle{apacite}
+\Large \textcolor{red}{Read this first!}
+\normalsize
+\newpara
+\textcolor{red}{Before you start reading my result section I would like to give you a small introduction to my topic as I did not hand in any introduction/methods section, I know most of you are not very familiar with my topic and I haven't written my methods section yet. I also don't want you to read back my proposal or give the details in the result section. :).}
+\newpara
+\textcolor{red}{So to give you a quick recap: my topic is about how well numerical weather prediction models can predict several variables related to Rossby Wave Packets (RWP). RWPs are areas where the jet stream has an increased waviness compared to the rest of the flow. I included an example below, which is from the PhD thesis of my supervisor. I will discuss the RWP Envelope, which is a measure for the amplitude of an RWP, RWP phase speed which is is a measure for the speed of individual ridges and troughs of an RWP (remember the difference between phase speed and group speed for those of you who did Atmospheric Dynamics!) and zonal wind speed (which is not directly related to RWPs). For now, I only discuss the performance of the Global Ensemble Forecasting System (GEFS) compared to the ERA5 reanalysis data, but more models may be added in the future. I hope this will help understanding my results a bit more.}
+\begin{figure}[ht]
+\center{\includegraphics[scale=0.62]{RWP_example}}
+\end{figure}
+\newpage
+\section{Results}
+In this section I will discuss the GEFS forecast errors compared to the ERA5 reanalysis dataset for several Rossby wave packet (RWP) related variables on the Northern Hemisphere. First, I will discuss the performance of the GEFS model by reviewing annual mean errors. Then, I will look at the difference between summer and winter mean errors and lastly, I will look at the temporal evolution of the mean forecast errors for several latitude bands. 
+
+\subsection{GEFS Forecast Errors}
+\subsubsection{Annual Results}
+
+In figure \ref{fig:Annual_Results_NH} I show the forecast errors of the GEFS reforecast dataset for the period December 1984 till November 2019 compared to the ERA5 reanalysis data for the same time period. I only show the day 2,5 and 8 forecast here for the sake of convenience.
+\newpara
+\begin{figure}[ht]
+\center{\includegraphics[scale=0.45]{Annual_Results_NH}}
+\caption{Spatial overview of ERA5 climatology and GEFS forecast errors compared to ERA5 climatology on the Northern Hemisphere for RWP envelope (E) (a-d), RWP phase speed (Cp) (e-h) and zonal wind speed (u) (i-l). Figures a,e and i show the annual ERA5 climatology for the mentioned variables for the time period December 1984 - November 2019. Here the 2-day (b,f,j), 5-day (c,g,k) and 8-day (d,h,l) forecasts are compared to ERA5 reanalysis data giving the GEFS mean annual forecast errors for the mentioned variables and lead days. The colors indicate the magnitude of the climatological values or the errors.}
+\label{fig:Annual_Results_NH}
+\end{figure}
+Figure \ref{fig:Annual_Results_NH}a shows the largest climatological values for RWP envelope speed (E) at the mid-latitude Atlantic and Eastern Pacific Sector, meaning that flow gets the most wavy here. Smaller values for E in the mid-latitudes can be found over continental areas in general and more clearly over Eastern-Asia. Also smaller values are found in the polar regions and near the sub-tropics, which can be explained by the fact that Rossby waves usually do not penetrate into these areas. 
+
+In general GEFS has difficulty in predicting the values for RWP Envelope as can be observed from figure \ref{fig:Annual_Results_NH} b, c and d. GEFS shows a systematic negative error for RWP envelope values and this error increases in magnitude over forecast lead time, meaning that the model gets less and less wavy compared to the reanalysis over lead time. This is in agreement with findings by \citet{gray2014systematic}.
+
+However, some  areas near the 60 °N parallel exhibit a far weaker error over lead time and some even exhibit a positive error, meaning that the forecast gets more wavy compared to reanalysis. I will come back to that in more detail later.
+\newpara
+Figure \ref{fig:Annual_Results_NH}e shows largest RWP phase speed values above the Western Pacific and also high values above Eastern Asia and the Atlantic sector, meaning that the individual ridges and troughs of an RWP move at relatively large speeds in these areas. Lower mid-latitude values are found near the Rocky Mountains and Europe/Western Asia. Again, very low values are found near the subtropics and the polar regions, because RWPs do not penetrate this area.
+
+In figure \ref{fig:Annual_Results_NH} f, g and h large patches of positive errors can be observed above North-America and Europe, whereas negative errors mainly occur over Asia, the Western Pacific and the Atlantic. Unlike the RWP envelope error pattern, there is no clear overall phase speed error pattern observed on the Northern Hemisphere. However, the errors that can be observed do seem to grow in magnitude over lead time. 
+\newpara
+In figure \ref{fig:Annual_Results_NH}i the mean zonal wind speed climatology is shown. The patterns that can be observed agree nicely with the average position of the jet streams \citep{koch2006event}. Highest values are present over Japan and the Western Pacific with other significant values over the Western Atlantic, Northern Africa, the Middle East and Central Asia. 
+
+Again, there is no clear pattern visible in zonal wind speed errors, with some areas showing clear positive errors growing over lead time and some areas show growing negative errors over lead time. However, in some areas a tripole pattern emerges where a positive error is encompassed by two areas with a negative error or vice versa. One such pattern can be observed around Iceland where there is a clear overestimation of zonal wind speed with a clear underestimation to the north and south of it. A comparable pattern can be seen east of Japan. This could imply that the jet stream in these areas is too zonal, which translates to a higher zonal wind (positive errors) at the center of the jet. This would also mean that the jet does not penetrate into the areas to the south and north as much any more causing a negative zonal wind speed error.
+
+Another thing that can be noted is that the patterns observed for the phase speed error and the zonal wind speed error seem to coincide. However, knowing that zonal wind speed and RWP phase speed are linearly dependent given the Rossby wave dispersion relation in a single-layer barotropic flow \footnote{You have to believe me for now. If you really want to check see equation 5.111 on page 162 of Holton (An introduction to dynamic meteorology)}, a relation between zonal wind speed error and phase speed error may be expected here as well. 
+
+\subsubsection{Seasonal Results}
+
+In figure \ref{fig:Annual_Results_NH_DJF} I did the same analysis as in figure \ref{fig:Annual_Results_NH}, however now I only selected the NH winter months December, January, February (DJF). It can be seen that in general climatological values are higher during winter time. This makes sense as in general the jet stream is stronger due to higher equator-to-pole temperature gradients. However, the locations of highest and lowest climatological values remain relatively unchanged compared to the annual results.
+\begin{figure}[ht]
+\center{\includegraphics[scale=0.45]{Annual_Results_NH_DJF}}
+\caption{Same as figure \ref{fig:Annual_Results_NH}, but now I only took values for the months December, January and February (DJF).}
+\label{fig:Annual_Results_NH_DJF}
+\end{figure}
+Looking at the envelope errors in figure \ref{fig:Annual_Results_NH_DJF} b, c and d more or less the same pattern can be seen as in \ref{fig:Annual_Results_NH} b, c and d, with a general decrease of envelope values that gets stronger over lead time and a couple of regions which make an exception to this pattern with an observed positive envelope error. However the observed DJF error patterns seem to emerge more strongly compared to the annual results. 
+
+This also holds for the forecast errors concerning the RWP phase speed and the zonal wind speed. Again the error patterns are more or less the same comparable to the annual results, but the differences are bigger. However, the bigger error magnitudes could simply be a matter of larger absolute values which also yield larger absolute errors.
+\newpara
+In figure \ref{fig:Annual_Results_NH_JJA} the same analysis was done, but now for the NH summer months June, July and August (JJA). The mean climatological values for JJA are much lower, because the jet stream is much weaker due to a relatively small equator-to-pole gradient. The main RWP envelope activity areas are the Atlantic and Eastern-Pacific sectors (fig. \ref{fig:Annual_Results_NH_JJA}a). However, it is striking that these two sectors have completely different climatological values for RWP phase speeds (fig. \ref{fig:Annual_Results_NH_JJA}b), where the values for mean phase speed are much higher for the Atlantic sector than for the Eastern Pacific sector. This would mean that in general atmospheric blockings and troughs are much more stationary above the Eastern Pacific. 
+
+\begin{figure}[ht]
+\center{\includegraphics[scale=0.45]{Annual_Results_NH_JJA}}
+\caption{Same as figure \ref{fig:Annual_Results_NH}, but now I only took values for the months June, July and August (JJA).}
+\label{fig:Annual_Results_NH_JJA}
+\end{figure}
+
+Again a very general decrease in envelope over lead time can be observed, meaning that this decrease is independent on time of year. However, there are again some exceptions to this pattern. Mainly above 60° N the general envelope error seems to be about zero. Another interesting patch of near zero mean error is around Japan.
+
+The phase speed errors show a slight general decrease over lead time on the NH except for Northern Europe and the Arctic ocean, where the phase speed is overestimated. The observed pattern seems to be slightly less chaotic compared to figure \ref{fig:Annual_Results_NH} and \ref{fig:Annual_Results_NH_DJF}. Very strong signals can be observed near the equator, but these should be ignored as these signal are based on very small sample sizes. Most values near the equator  are undefined due to absence of RWPs in general, especially in NH summer. 
+\newpara
+In figure \ref{fig:GEFS_Error_Evolution_NH} the daily mean forecast error evolution is shown for the entire year, DJF and JJA for al three variables that were discussed earlier. Looking at figure \ref{fig:GEFS_Error_Evolution_NH} a,b and c again the general trend of envelope underestimation by the GEFS forecast can be observed. Underestimations are largest in subtropical regions (25-45 °N) and for most seasons a continuous and more or less linear negative trend can be seen. However, for subtropical regions  in DJF a very sharp increase in envelope underestimation can be observed which more or less saturates already after the lead day 4. This strong decrease may influence the annual results for subtropical regions as well. 
+
+\begin{figure}[ht]
+\center{\includegraphics[scale=0.65]{GEFS_Error_Evolution_NH}}
+\caption{The GEFS mean forecast errors for each lead day up till lead day 10 for RWP envelope (E) (a,b,c), RWP phase speed (Cp) (d,e,f) and zonal wind speed (u) (g,h,i). I split the data into 5 latitude bands between 25 and 75 °N where each line represents a latitude band of 10° width . The included time period of the data is December 1984 till November 2019 where the first column (a,d,g) shows the annual mean forecast errors, the second column (b,e,h)  shows the data during the months December, January and February and the third columns (c,f,i) shows the data during the months July, June and August. Note that for the phase speed data the initial forecast (lead day 0) is missing, because phase speed is undefined at lead day 0.}
+\label{fig:GEFS_Error_Evolution_NH}
+\end{figure}
+
+Looking at figure \ref{fig:GEFS_Error_Evolution_NH} d,e and f it can be seen that RWP phase speed errors in general have higher values the more north you go, however the overall values stay rather close to zero and no clear trend for RWP phase speed errors can be observed.  In addition to that the signals for the individual seasons DJF adn JJA seem to be rather noisy, but the GEFS forecast seems to underestimate phase speed values slightly more in JJA compared to DJF. Looking back at the spatial overviews of phase speed errors it can be seen that that specific areas did see an increase in absolute error magnitude, but that there was no clear pattern visible over lead time. Looking at figure \ref{fig:GEFS_Error_Evolution_NH} d, e and f it seems that these errors in the end add up to about zero. The only exception is the slight general underestimation that could be seen for phase speed in JJA which also is visible in \ref{fig:GEFS_Error_Evolution_NH}f. It should be noted though that these trend only show the mean errors for each latitude band and do not say anything about error variation.
+\newpara
+From the annual results in figure \ref{fig:GEFS_Error_Evolution_NH}g for zonal wind speed forecast errors no clear general trend over forecast lead time can be found. Similar to the spatial overviews of RWP phase speed errors the absolute error magnitude seems to increase in specific regions, but this does not become apparent from figure \ref{fig:GEFS_Error_Evolution_NH}g indicating that again these errors seem to cancel each other out. However, a difference between seasons can be seen. In DJF overall forecast error values seem to be slightly higher compared to the annual results. What is very noteworthy here, is that especially the forecast errors in the mid-latitudes (45-65 °N) seems to increase over lead time in DJF. This could indicate an overestimation of the jet stream in the mid-latitudes. In JJA there is a slight increase of zonal wind speed underestimation over lead time in almost all areas, with strongest underestimations in subtropics. 
+
+
+
+
+
+\newpage
+\bibliography{/home/onno/Downloads/test/Literatures}
+\end{document}
+
